@@ -22,7 +22,7 @@ public class MatrixMultiplication
    }
 
    // Multiplication of two square matrices
-   // The arguments are not checked for validity
+   // There are no validity checks
    public static double[][] mult(double[][] A, double[][] B, int size)
    {
       double[][] C = new double[size][size];
