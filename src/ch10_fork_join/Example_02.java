@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Example_02
 {
@@ -12,6 +13,8 @@ public class Example_02
    @SuppressWarnings("serial")
    static class Task extends RecursiveTask<Integer>
    {
+      public static AtomicInteger counter = new AtomicInteger(0);
+      
       private final int[] array;
       private final int start, end;
 
@@ -20,6 +23,8 @@ public class Example_02
          this.array = array;
          this.start = start;
          this.end = end;
+         
+         Task.counter.incrementAndGet();
       }
 
       @Override
@@ -62,5 +67,6 @@ public class Example_02
       // ForkJoinPool.commonPool().execute(root);
 
       System.out.println("Max " + root.join());
+      System.out.println("Number of tasks " + Task.counter.get() );
    }
 }

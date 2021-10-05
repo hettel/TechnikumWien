@@ -7,11 +7,19 @@ public class Example_01
 {
    public static void main(String[] args)
    {
-      long count = IntStream.range(1, 1_000)
+      System.out.println("start");
+      
+      long start = System.currentTimeMillis();
+      
+      long count = IntStream.range(1, 5_000_000)
+                            .parallel()
                             .mapToObj( BigInteger::valueOf ) 
-                            .filter(bInt -> bInt.isProbablePrime(1000) )
+                            .filter(bInt -> bInt.isProbablePrime(750) )
                             .count();
                      
+      long end = System.currentTimeMillis();
+      
       System.out.println("Count : " + count );
+      System.out.println("Duration " + (end - start) + "[ms]");
    }
 }

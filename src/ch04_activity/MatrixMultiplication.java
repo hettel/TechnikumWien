@@ -6,11 +6,12 @@ public class MatrixMultiplication
 
    public static void main(String[] args)
    {
-      final int SIZE = 700;
+      final int SIZE = 800;
+
+      System.out.println("Start");
 
       double[][] A = Util.getRandomMatrix(SIZE, SIZE);
       double[][] B = Util.getRandomMatrix(SIZE, SIZE);
-
 
       long startTime = System.currentTimeMillis();
       double[][] C = mult(A, B, SIZE);
@@ -29,9 +30,9 @@ public class MatrixMultiplication
 
       for (int i = 0; i < size; i++)
       {
-         for (int j = 0; j < size; j++)
+         for (int k = 0; k < size; k++)
          {
-            for (int k = 0; k < size; k++)
+            for (int j = 0; j < size; j++)
             {
                C[i][j] += A[i][k] * B[k][j];
             }
