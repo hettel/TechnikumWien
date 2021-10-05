@@ -1,6 +1,7 @@
 # data files
 Homer-Odyssey-*.txt
 **/Solution*
+/src/scratch/
 
 # eclipse project file
 .settings/
